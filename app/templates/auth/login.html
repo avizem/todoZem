@@ -1,0 +1,27 @@
+{% extends 'base_auth.html' %}
+{% block title %}login{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="login_form">
+  <form method="post" action="{{ url_for('auth.login') }}">
+    <p class="colored-text xl">Log in to your account</p>
+    <div class="input-group">
+      <label for="email">Email address</label>
+      <input name="email" id="email" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input name="password" id="password" required>
+    </div>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    <div class="input-group" id="submit_div">
+      <input id="submit_btn" type="submit" value="Log in">
+    </div>
+    <p> Forgot password?  <a class="colored-text" href="{{ url_for('auth.reset_password') }}">Reset here</a></p>
+  </form>
+</div>
+{% endblock %}

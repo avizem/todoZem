@@ -1,0 +1,38 @@
+{% extends 'base_auth.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="register_form">
+  <form method="post" action="{{ url_for('auth.register') }}">
+    <p class="colored-text xl">Hey there, nice to meat you!</p>
+    <div class="input-group">
+      <label for="Fname">First name</label>
+      <input name="Fname" id="Fname" value="{{ request.form['Fname'] }}" required>
+    </div>
+    <div class="input-group">
+      <label for="Lname">Last name</label>
+      <input name="Lname" id="Lname" value="{{ request.form['Lname'] }}" required>
+    </div>    <div class="input-group">
+      <label for="phone">Phone</label>
+      <input name="phone" id="phone" value="{{ request.form['phone'] }}" required>
+    </div> 
+    <div class="input-group">
+      <label for="email">Email address</label>
+      <input name="email" id="email" value="{{ request.form['email'] }}" required>
+    </div>
+    <div class="input-group">
+      <label for="b_date">Birth Date</label>
+      <input type="date" name="b_date" id="b_date" value="{{ request.form['b_date'] }}" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input name="password" id="password" value="{{ request.form['password'] }}" required>
+    </div>
+    <div class="input-group" id="submit_div">
+      <input id="submit_btn" type="submit" value="Register">
+    </div>
+  </form>
+</div>
+{% endblock %}

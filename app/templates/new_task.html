@@ -1,0 +1,33 @@
+{% extends 'base_auth.html' %}
+{% block title %}home{% endblock %}
+{% block header %}
+<a class="active" href="{{ url_for('home.tasks') }}">            
+  <button type="submit" class="btn btn-danger btn-sm">רשימת המטלות</button>
+</a> 
+<a class="active" href="{{ url_for('auth.logout') }}">
+  <button type="submit" class="btn btn-danger btn-sm">יציאה</button>
+</a> 
+{% endblock %}
+
+{% block content %}
+<div class="login_form">
+    <form method="post" action="{{ url_for('home.create_task') }}">
+      <p class="colored-text xl">צור משימה</p>
+      <div class="input-group">
+        <label for="task" class="new_task">משימה חדשה</label>
+        <input class="new_task" name="task" id="task" required>
+      </div>
+      <div class="input-group">
+        <label for="execution_date" class="new_task">תאריך לביצוע</label>
+        <input class="new_task" type="date" name="execution_date" id="execution_date" required>
+      </div>
+      {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+      <div class="input-group" id="submit_div">
+        <input id="submit_btn" type="submit" value="צור">
+      </div>
+      <!-- <p> Forgot password?  <a class="colored-text" href="{{ url_for('auth.reset_password') }}">Reset here</a></p> -->
+    </form>
+  </div>
+{% endblock %}

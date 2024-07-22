@@ -1,0 +1,116 @@
+
+html,body{
+    font-family: sans-serif;
+    background:#498664;
+    padding: 1rem;
+    text-align: center;
+}
+.new_task{
+    direction: rtl;
+    text-align: right;
+}
+
+.login_form, .register_form {
+    max-width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px;
+    background:white;
+    border-radius: 10px;
+} 
+ul{
+    list-style: none;
+}
+input{
+    height:40px;
+    border-radius: 5px;
+}
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+} 
+.input-group input {
+    font-size: small;
+}
+label {
+    margin-bottom: 5px;
+} 
+.colored-text{
+    color:#498664;
+}
+
+#users_table{
+    margin-top: 5%;   
+} 
+#users{
+    background:rgb(250, 250, 250);
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+.all-details-link{
+    border-radius: 6px;
+}
+#submit_btn{
+    background:#498664;
+    color: white;
+    border: 0cm;
+}
+label {
+    font-size: small;
+    text-align: left;
+}
+.s{
+    font-size:small;
+}
+.xl{
+    font-size: x-large;
+}
+
+.flash{
+    background: rgb(168, 122, 122);
+    height:40px;
+    border-radius: 5px; 
+    padding-top: 7px;
+    font-size: medium;
+}
+
+
+@media only screen and (max-width: 980px) and (min-height: 1740px) {
+    .login_form{
+       max-width: 90%;
+       height:850px;
+       border-radius: 29px;
+       padding: 70px;
+    }
+    .register_form{
+        max-width: 90%;
+        height:1450px;
+        border-radius: 29px;
+        padding: 70px;
+     }
+    input{
+        height:100px;
+        border-radius: 5px;
+        border-radius: 15px;
+        margin: 15px;
+        border:solid;
+    }
+    .xl{
+        font-size: 4rem;
+    }
+    label {
+        font-size: 2.3rem;
+        text-align: left;
+        margin-left: 15px;
+    }
+    p{
+        font-size: 2.5rem;
+
+    }
+    .input-group input {
+        font-size: 2.5rem;
+    }
+}

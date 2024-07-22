@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% block title %}home{% endblock %}
+{% block header %}
+<a class="active" href="{{ url_for('home.new_task') }}">            
+  <button type="submit" class="btn btn-danger btn-sm">מטלה חדשה</button>
+</a> 
+<a class="active" href="{{ url_for('auth.logout') }}">
+  <button type="submit" class="btn btn-danger btn-sm">יציאה</button>
+</a> 
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">משימה</th>
+        <th scope="col">תאריך יצירה</th>
+        <th scope="col">תאריך לביצוע</th>
+        <th scope="col">בוצע</th>
+        <th scope="col">מחיקה</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <th scope="row">{{ loop.index }}</th>
+        <td>{{ task.name }}</td>
+        <td>{{ task.creation_date.strftime('%d-%m-%Y') }}</td>
+        <td>{{ task.execution_date.strftime('%d-%m-%Y') }}</td>
+        <td>
+          {% if task.isDone %}
+            כן
+          {% else %}
+            <form action="{{ url_for('home.done_task', task_id=task.id) }}" method="post" style="display:inline;">
+              <button type="submit" class="btn btn-success btn-sm">בוצע</button>
+            </form>
+          {% endif %}
+        </td>
+        <td>
+          <form action="{{ url_for('home.delete_task', task_id=task.id) }}" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm">מחק</button>
+          </form>
+        </td>      
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
